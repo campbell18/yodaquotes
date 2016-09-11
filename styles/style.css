@@ -1,0 +1,59 @@
+body {
+  background: url("clouds-1117607_1920.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Indie Flower", cursive; }
+
+.page-header, .inputWrapper {
+  text-align: center; }
+
+.jumbotron {
+  background: rgba(255, 255, 242, 0.5);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-top: 5px;
+  height: 210px; }
+
+.titles {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center; }
+
+#enterCity {
+  width: 40%; }
+
+#userInput {
+  font-weight: bold;
+  font-size: 25px; }
+
+.btn-md {
+  width: 10%;
+  font-weight: bold;
+  font-size: 18px; }
+
+.details, .sun, .temps {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 0.5em; }
+
+#desc, #srise, #high {
+  padding-right: 5em; }
+
+.data {
+  background-color: rgba(255, 255, 242, 0.5);
+  border: solid lightgray;
+  border-radius: 1em; }
+
+.images {
+  width: 42px;
+  height: 42px; }
+
+.mainInfo {
+  font-size: 26px; }
+
+.imageMain {
+  height: 50px;
+  width: 50px; }
