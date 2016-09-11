@@ -11,9 +11,21 @@ body {
     background-color: transparent;
 }
 
-#page-footer{
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: RGB(86, 121, 43) !important;
+}
+
+#header{
+    width:auto;
+    background-color: forestgreen;
+    height:20px;
+}
+
+#footer{
     width:auto;
     height: 20px;
+     background-color: forestgreen;
 }
 
 h2#page-header {
