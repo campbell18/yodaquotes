@@ -13,6 +13,21 @@ var getQuoteButton = $("#main-button")[0]
 var quoteText = $("#final-quote")[0]
 var authorText = $("#final-author")[0]
 
+function rotation(): void{
+   $("#yoda-image").rotate({
+    angle:0,
+    animateTo:360,
+    callback: rotation,
+    easing: function (x,t,b,c,d){      // t: current time, b: begInnIng value, c: change In value, d: duration
+      
+      if (gettingQuote){
+         return c*(t/d)+b;
+      }
+     
+    }
+  });
+}
+
 //Class/object to hold final values and update UI with.
 class YodaQuote {
     quote: string;
@@ -33,6 +48,10 @@ getQuoteButton.addEventListener("click", function () {
       gettingQuote = true;     
       $("#main-button").removeClass("active");
       $("#main-button").addClass("disabled");
+
+      
+rotation();
+
       generateQuote();
     }    
 });
