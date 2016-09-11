@@ -45,6 +45,7 @@ function getYodaSpeak(): void {
     success: function (data) {
 
       translatedQuote = data;
+      updateYodaSpeak();
 
     },
     error: function (err) {

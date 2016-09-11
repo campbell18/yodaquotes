@@ -19,8 +19,6 @@ function getQuote() {
         .done(function (data) {
         var json = JSON.parse(data);
         retrievedQuote = json.quote;
-        console.log("Got the quote:" + retrievedQuote);
-        console.log(data);
         getYodaSpeak();
     })
         .fail(function (error) {
@@ -34,9 +32,8 @@ function getYodaSpeak() {
         type: 'GET',
         datatype: 'json',
         success: function (data) {
-            console.log(data);
             translatedQuote = data;
-            console.log("Got the translation:" + translatedQuote);
+            updateYodaSpeak();
         },
         error: function (err) {
             alert(err);
