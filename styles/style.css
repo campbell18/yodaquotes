@@ -1,59 +1,32 @@
+html { 
+    background: url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 body {
-  background: url("clouds-1117607_1920.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: "Indie Flower", cursive; }
+    color: white;
+    background-color: transparent;
+}
 
-.page-header, .inputWrapper {
-  text-align: center; }
+#page-footer{
+    width:auto;
+    height: 20px;
+}
 
-.jumbotron {
-  background: rgba(255, 255, 242, 0.5);
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding-top: 5px;
-  height: 210px; }
+h2#page-header {
+    padding-top:20px;
+    padding-bottom:20px;
+}
 
-.titles {
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center; }
+#page-container {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-#enterCity {
-  width: 40%; }
-
-#userInput {
-  font-weight: bold;
-  font-size: 25px; }
-
-.btn-md {
-  width: 10%;
-  font-weight: bold;
-  font-size: 18px; }
-
-.details, .sun, .temps {
-  font-weight: bold;
-  font-size: 18px;
-  text-align: left;
-  padding-left: 0.5em; }
-
-#desc, #srise, #high {
-  padding-right: 5em; }
-
-.data {
-  background-color: rgba(255, 255, 242, 0.5);
-  border: solid lightgray;
-  border-radius: 1em; }
-
-.images {
-  width: 42px;
-  height: 42px; }
-
-.mainInfo {
-  font-size: 26px; }
-
-.imageMain {
-  height: 50px;
-  width: 50px; }
+.btn-wrapper {
+    padding: 20px 0;
+}
