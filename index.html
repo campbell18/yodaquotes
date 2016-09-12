@@ -18,27 +18,30 @@
         <div class="btn-wrapper">
             <!-- Single button -->
 
-             <div class="btn-group">
-                 <button id="yoda-drop" type="button" class="btn active btn-primary btn-default dropdown-toggle" data-toggle="dropdown">
+            <div class="btn-group">
+                <button id="yoda-drop" type="button" class="btn active btn-primary btn-default dropdown-toggle" data-toggle="dropdown">
                    <span data-bind="label">Select Type</span>&nbsp;<span class="caret"></span>
                  </button>
-                 <ul id="dropdown-menuz" class="dropdown-menu" role="menu">
-                   <li><a href="#">Movie Quote</a></li>
-                   <li><a href="#">Person Quote</a></li>
-                 </ul>
-               </div>
+                <ul id="dropdown-menuz" class="dropdown-menu" role="menu">
+                    <li><a href="#">Movie Quote</a></li>
+                    <li><a href="#">Person Quote</a></li>
+                </ul>
+            </div>
 
             <button id="main-button" class="btn btn-primary active" type="button">Get Yoda Quote</button>
         </div>
         <p id="warn" style="text-align: center; font-size: 15px; color:red; display:none;">Please select a type of quote to Yoda-fy</p>
-        <div id="quote-holder">
+        <div id="quote-holder" style="display:none;">
+            <div id="speech-bubble" class="speech-bubble">
+                <div class="arrow bottom right"></div>
+                <div id="final-quote" class="output"></div>
+                <div id="final-author" class="output" style="font-style: italic;"></div>
+                <div id="placeholder" class="output"> Getting your quote, we are. </div>
+            </div>
+        </div>
             <div id="spinner">
                 <img id="yoda-image" src="images/yoda.png">
             </div>
-            <div id="final-quote">Placeholder</div>
-            <div id="final-author">Placeholder</div>
-            <div id="placeholder"> Getting your quote, we are. </div>
-        </div>
 
         <!--jQuery Script-->
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>

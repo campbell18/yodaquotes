@@ -53,6 +53,7 @@ getQuoteButton.addEventListener("click", function () {
         gettingQuote = true;
         //Hide error message if it is showing
         $("#warn").hide();
+        $("#quote-holder").show();
         //Disabled buttons and dropdown
         $("#main-button").removeClass("active");
         $("#main-button").addClass("disabled");
@@ -62,6 +63,8 @@ getQuoteButton.addEventListener("click", function () {
         $("#placeholder").show();
         $("#final-quote").hide();
         $("#final-author").hide();
+        // Set the container height
+        $("#quote-holder").height($("#speech-bubble").height() + 40);
         rotation();
         //Begin API calls to generate quote
         generateQuote();
@@ -133,6 +136,8 @@ function updateYodaSpeak() {
     $("#final-author").show();
     //Update UI elements
     endQuote.getYodaQuote();
+    // Set the container height
+    $("#quote-holder").height($("#speech-bubble").height() + 40);
     //Reset boolean
     gettingQuote = false;
 }

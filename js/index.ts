@@ -14,8 +14,8 @@ var quoteText = $("#final-quote")[0]
 var authorText = $("#final-author")[0]
 var drop = $('#dropdown-menu li')[0];
 
-$('#dropdown-menuz li').on('click', function(){    
-    var tempCategory = $(this).text();
+$('#dropdown-menuz li').on('click', function () {
+  var tempCategory = $(this).text();
   if (tempCategory == "Movie Quote") {
     retrievedCategory = "movies";
     $("#warn").hide()
@@ -34,8 +34,7 @@ function rotation(): void {
 
       if (gettingQuote) {
         return c * (t / d) + b;
-      }
-
+      } 
     }
   });
 }
@@ -62,6 +61,7 @@ getQuoteButton.addEventListener("click", function () {
 
     //Hide error message if it is showing
     $("#warn").hide()
+     $("#quote-holder").show()
 
     //Disabled buttons and dropdown
     $("#main-button").removeClass("active");
@@ -74,6 +74,8 @@ getQuoteButton.addEventListener("click", function () {
     $("#placeholder").show();
     $("#final-quote").hide();
     $("#final-author").hide()
+    // Set the container height
+  $("#quote-holder").height($("#speech-bubble").height() + 40);
     rotation();
 
     //Begin API calls to generate quote
@@ -165,6 +167,8 @@ function updateYodaSpeak(): void {
 
   //Update UI elements
   endQuote.getYodaQuote();
+  // Set the container height
+  $("#quote-holder").height($("#speech-bubble").height() + 40);
 
   //Reset boolean
   gettingQuote = false;
