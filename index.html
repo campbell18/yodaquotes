@@ -22,7 +22,7 @@
                  <button id="yoda-drop" type="button" class="btn active btn-primary btn-default dropdown-toggle" data-toggle="dropdown">
                    <span data-bind="label">Select Type</span>&nbsp;<span class="caret"></span>
                  </button>
-                 <ul class="dropdown-menu" role="menu">
+                 <ul id="dropdown-menuz" class="dropdown-menu" role="menu">
                    <li><a href="#">Movie Quote</a></li>
                    <li><a href="#">Person Quote</a></li>
                  </ul>
@@ -30,6 +30,7 @@
 
             <button id="main-button" class="btn btn-primary active" type="button">Get Yoda Quote</button>
         </div>
+        <p id="warn" style="text-align: center; font-size: 15px; color:red; display:none;">Please select a type of quote to Yoda-fy</p>
         <div id="quote-holder">
             <div id="spinner">
                 <img id="yoda-image" src="images/yoda.png">
@@ -56,6 +57,7 @@
                 return false;
 
             });
+
         </script>
 
         <!--Bootstrap Script-->

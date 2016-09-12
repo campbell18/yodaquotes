@@ -1,7 +1,7 @@
 //Set up temp variables to be update by the APIs 
 var retrievedQuote = ""
 var retrievedAuthor = ""
-var retrievedCategory = "movies"
+var retrievedCategory = ""
 
 //Object used to update UI
 var endQuote: YodaQuote;
@@ -12,6 +12,18 @@ gettingQuote = false;
 var getQuoteButton = $("#main-button")[0]
 var quoteText = $("#final-quote")[0]
 var authorText = $("#final-author")[0]
+var drop = $('#dropdown-menu li')[0];
+
+$('#dropdown-menuz li').on('click', function(){    
+    var tempCategory = $(this).text();
+  if (tempCategory == "Movie Quote") {
+    retrievedCategory = "movies";
+    $("#warn").hide()
+  } else if (tempCategory == "Person Quote") {
+    $("#warn").hide()
+    retrievedCategory = "famous";
+  }
+});
 
 function rotation(): void {
   $("#yoda-image").rotate({
@@ -44,23 +56,35 @@ class YodaQuote {
 
 //Add listener to the "Get Yoda Quote" button
 getQuoteButton.addEventListener("click", function () {
-  if (!gettingQuote) {
+
+  if (!gettingQuote && retrievedCategory != "") {
     gettingQuote = true;
+
+    //Hide error message if it is showing
+    $("#warn").hide()
+
+    //Disabled buttons and dropdown
     $("#main-button").removeClass("active");
     $("#main-button").addClass("disabled");
-
     $("#yoda-drop").removeClass("active");
     $("#yoda-drop").addClass("disabled");
 
 
+    //Show loading message and spin yoda head
     $("#placeholder").show();
     $("#final-quote").hide();
     $("#final-author").hide()
-
     rotation();
 
+    //Begin API calls to generate quote
     generateQuote();
+  } else {
+
+    //If user has not selected type show error message 
+    $("#warn").show()
+
   }
+
 });
 
 //Call the APIs and set loading animations
@@ -72,6 +96,7 @@ function generateQuote(): void {
 //AJAX call to get famous quote from specified categories
 function getQuote(): void {
   console.log("Getting quote...")
+
   $.ajax({
     url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=" + retrievedCategory,
     beforeSend: function (xhrObj) {
