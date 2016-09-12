@@ -5,7 +5,7 @@
     <title>Yoda Quotes</title>
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
-    <link rel='shortcut icon' href='./images/yodaicon.ico' type='image/x-icon'/ >
+    <link rel='shortcut icon' href='./images/yodaicon.ico' type='image/x-icon' />
 </head>
 
 <body>
@@ -13,26 +13,55 @@
     <div class="container" id="page-container">
 
         <h2 id="page-header">Famous Yoda Quotes</h2>
+        <h3 style="text-align: center; font-size: 19px;">Well known quotes as Yoda would say them.</h3>
 
         <div class="btn-wrapper">
+            <!-- Single button -->
+
+             <div class="btn-group">
+                 <button id="yoda-drop" type="button" class="btn active btn-primary btn-default dropdown-toggle" data-toggle="dropdown">
+                   <span data-bind="label">Select Type</span>&nbsp;<span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu" role="menu">
+                   <li><a href="#">Movie Quote</a></li>
+                   <li><a href="#">Person Quote</a></li>
+                 </ul>
+               </div>
+
             <button id="main-button" class="btn btn-primary active" type="button">Get Yoda Quote</button>
         </div>
-        <div id="quote-holder"> 
+        <div id="quote-holder">
             <div id="spinner">
                 <img id="yoda-image" src="images/yoda.png">
-            </div>            
+            </div>
             <div id="final-quote">Placeholder</div>
             <div id="final-author">Placeholder</div>
             <div id="placeholder"> Getting your quote, we are. </div>
         </div>
 
-    <!--jQuery Script-->
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./js/jQueryRotate.js"></script>
-    <!--Bootstrap Script-->
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--Custom Script-->
-    <script src="./js/index.js"></script>
+        <!--jQuery Script-->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./js/jQueryRotate.js"></script>
+
+        <script>
+            $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+
+                var $target = $( event.currentTarget );
+
+                $target.closest( '.btn-group' )
+                .find( '[data-bind="label"]' ).text( $target.text() )
+                .end()
+                .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+
+                return false;
+
+            });
+        </script>
+
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Custom Script-->
+        <script src="./js/index.js"></script>
 </body>
 
 </html>

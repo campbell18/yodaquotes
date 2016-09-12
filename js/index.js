@@ -41,6 +41,11 @@ getQuoteButton.addEventListener("click", function () {
         gettingQuote = true;
         $("#main-button").removeClass("active");
         $("#main-button").addClass("disabled");
+        $("#yoda-drop").removeClass("active");
+        $("#yoda-drop").addClass("disabled");
+        $("#placeholder").show();
+        $("#final-quote").hide();
+        $("#final-author").hide();
         rotation();
         generateQuote();
     }
@@ -99,6 +104,12 @@ function updateYodaSpeak() {
     //Re-anable button
     $("#main-button").addClass("active");
     $("#main-button").removeClass("disabled");
+    //Re-anable button
+    $("#yoda-drop").addClass("active");
+    $("#yoda-drop").removeClass("disabled");
+    $("#placeholder").hide();
+    $("#final-quote").show();
+    $("#final-author").show();
     //Update UI elements
     endQuote.getYodaQuote();
     //Reset boolean

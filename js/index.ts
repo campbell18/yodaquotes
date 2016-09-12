@@ -13,52 +13,59 @@ var getQuoteButton = $("#main-button")[0]
 var quoteText = $("#final-quote")[0]
 var authorText = $("#final-author")[0]
 
-function rotation(): void{
-   $("#yoda-image").rotate({
-    angle:0,
-    animateTo:360,
+function rotation(): void {
+  $("#yoda-image").rotate({
+    angle: 0,
+    animateTo: 360,
     callback: rotation,
-    easing: function (x,t,b,c,d){      // t: current time, b: begInnIng value, c: change In value, d: duration
-      
-      if (gettingQuote){
-         return c*(t/d)+b;
+    easing: function (x, t, b, c, d) {      // t: current time, b: begInnIng value, c: change In value, d: duration
+
+      if (gettingQuote) {
+        return c * (t / d) + b;
       }
-     
+
     }
   });
 }
 
 //Class/object to hold final values and update UI with.
 class YodaQuote {
-    quote: string;
-    author: string;
+  quote: string;
+  author: string;
 
-    constructor(public qquote, public aauthor) {
-        this.quote = qquote;
-        this.author = aauthor;
-    }    
-    getYodaQuote() {
-        return quoteText.innerHTML = this.quote, authorText.innerHTML = this.author;
-    }
+  constructor(public qquote, public aauthor) {
+    this.quote = qquote;
+    this.author = aauthor;
+  }
+  getYodaQuote() {
+    return quoteText.innerHTML = this.quote, authorText.innerHTML = this.author;
+  }
 }
 
 //Add listener to the "Get Yoda Quote" button
 getQuoteButton.addEventListener("click", function () {
-    if (!gettingQuote){
-      gettingQuote = true;     
-      $("#main-button").removeClass("active");
-      $("#main-button").addClass("disabled");
+  if (!gettingQuote) {
+    gettingQuote = true;
+    $("#main-button").removeClass("active");
+    $("#main-button").addClass("disabled");
 
-      
-rotation();
+    $("#yoda-drop").removeClass("active");
+    $("#yoda-drop").addClass("disabled");
 
-      generateQuote();
-    }    
+
+    $("#placeholder").show();
+    $("#final-quote").hide();
+    $("#final-author").hide()
+
+    rotation();
+
+    generateQuote();
+  }
 });
 
 //Call the APIs and set loading animations
 function generateQuote(): void {
-  
+
   getQuote()
 }
 
@@ -99,7 +106,7 @@ function getYodaSpeak(): void {
     type: 'GET',
     datatype: 'json',
     success: function (data) {
-      
+
       //Create new YodaQuote object with final results
       endQuote = new YodaQuote(data, retrievedAuthor)
 
@@ -122,6 +129,14 @@ function updateYodaSpeak(): void {
   //Re-anable button
   $("#main-button").addClass("active");
   $("#main-button").removeClass("disabled");
+
+  //Re-anable button
+  $("#yoda-drop").addClass("active");
+  $("#yoda-drop").removeClass("disabled");
+
+  $("#placeholder").hide();
+  $("#final-quote").show();
+  $("#final-author").show()
 
   //Update UI elements
   endQuote.getYodaQuote();
