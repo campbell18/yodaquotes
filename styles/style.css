@@ -1,5 +1,6 @@
 html { 
-    background: url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg") no-repeat center center fixed; 
+     background: seagreen; /* For browsers that do not support gradients */
+    background: linear-gradient(seagreen) no-repeat center center fixed;/* Standard syntax */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
